@@ -1,9 +1,16 @@
 extends CharacterBody2D
+class_name Player 
 
-const VELOCITY = 100
-const JUMP_VELOCITY = 300
+const MAX_SPEED = 90.0
+const ACCELERATION = 900.0
+const AIR_MULTIPLIER = 0.7  
+
+const JUMP_GRAVITY = 980.0 
+const FALL_GRAVITY = 400.0
+const TERMINAL_VELOCITY = 500.0 
 
 @onready var sprites = $AnimatedSprite2D
+@onready var fsm = $FSM 
 
 var direction:
 	get: return direction
@@ -11,21 +18,9 @@ var direction:
 		if value==0 or value==direction: return 
 		direction = value 
 		sprites.flip_h = value==-1
+		
+func _ready():
+	fsm.change_state("idle")
 
 func _physics_process(delta):
-	var x_input = Input.get_axis("btn_left", "btn_right")
-	direction = x_input
-	
-	if Input.is_action_just_pressed("btn_space") and is_on_floor():
-		velocity.y = -JUMP_VELOCITY
-		sprites.play("jump")
-	elif not is_on_floor() and velocity.y >= 0:
-		sprites.play("fall")
-	elif x_input==0 and is_on_floor():
-		sprites.play("idle")
-	elif is_on_floor():
-		sprites.play("run")
-	
-	velocity.x = x_input*VELOCITY
-	velocity.y += 980 * delta
-	move_and_slide()
+	fsm.physics_update(delta)

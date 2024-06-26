@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://h7f30ew43voa"]
+[gd_scene load_steps=27 format=3 uid="uid://h7f30ew43voa"]
 
 [ext_resource type="Texture2D" uid="uid://ciu2clivng8pb" path="res://Assets/Captain-Clown-Nose-Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_afas5"]
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_fsmyg"]
@@ -17,6 +17,11 @@
 [ext_resource type="Texture2D" uid="uid://mbsjqm4pswcn" path="res://Assets/Captain-Clown-Nose-Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 04.png" id="14_govy1"]
 [ext_resource type="Texture2D" uid="uid://dbflwmji7fsvc" path="res://Assets/Captain-Clown-Nose-Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 05.png" id="15_sevdf"]
 [ext_resource type="Texture2D" uid="uid://jrrwd0rcvar6" path="res://Assets/Captain-Clown-Nose-Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 06.png" id="16_hvwv8"]
+[ext_resource type="Script" path="res://Scripts/FSM/fsm.gd" id="18_j2pq5"]
+[ext_resource type="Script" path="res://Scripts/Player/States/player_idle.gd" id="19_lgwx2"]
+[ext_resource type="Script" path="res://Scripts/Player/States/player_run.gd" id="20_qheit"]
+[ext_resource type="Script" path="res://Scripts/Player/States/player_jump.gd" id="21_qgw4c"]
+[ext_resource type="Script" path="res://Scripts/Player/States/player_fall.gd" id="22_cgtws"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b4juy"]
 texture = ExtResource("1_ywdkq")
@@ -562,10 +567,10 @@ position = Vector2(1, 0)
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_wa8x3")
 format = 2
-layer_0/tile_data = PackedInt32Array(327680, 983040, 4, 327681, 65536, 4, 327682, 65536, 4, 327683, 65536, 4, 327684, 65536, 4, 327685, 65536, 4, 327686, 655360, 4, 327687, 65536, 2, 327688, 65536, 2, 327689, 65536, 2, 327690, 65536, 2, 327691, 65536, 2, 327692, 131072, 2, 262156, 131072, 1, 196620, 131072, 1, 131084, 458752, 4, 65548, 262144, 1, 12, 262144, 1, 262144, 262144, 1, 196608, 262144, 1, 131072, 262144, 1, 65536, 262144, 1, 0, 262144, 1, 262151, 458752, 1, 196615, 0, 0, 196616, 65536, 0, 196617, 458752, 1, 131081, 0, 0, 131082, 65536, 0, 131083, 65536, 0, 262150, 0, 0, 262152, 65536, 1, 262153, 65536, 1, 262154, 65536, 1, 262155, 65536, 1, 196619, 65536, 1, 196618, 65536, 1, -65536, 983040, 3, -65535, 65536, 4, -65534, 65536, 4, -65533, 65536, 4, -65532, 65536, 4, -65531, 65536, 4, -65530, 65536, 4, -65529, 65536, 4, -65528, 65536, 4, -65527, 65536, 4, -65526, 65536, 4, -65525, 65536, 4, -65524, 1048576, 3)
+layer_0/tile_data = PackedInt32Array(393208, 65536, 4, 393209, 65536, 4, 393210, 65536, 4, 393211, 65536, 4, 393212, 65536, 4, 393213, 65536, 4, 393214, 65536, 4, 393215, 65536, 4, 327680, 65536, 4, 327681, 65536, 4, 327682, 65536, 4, 327683, 65536, 4, 327684, 65536, 4, 262141, 0, 4, 262142, 131072, 4, 196602, 0, 4, 196603, 131072, 4, 131064, 131072, 4, -6, 262144, 4, -65540, 262144, 4, -131074, 262144, 4, -262144, 0, 4, -262143, 131072, 4, 327685, 1048576, 4, 262149, 262144, 1, 196613, 262144, 1, 131077, 262144, 1, 65541, 262144, 1, 5, 262144, 1, -65531, 262144, 1, -131067, 262144, 1, -196603, 262144, 1, -262139, 262144, 1, -327675, 262144, 1, -393211, 262144, 1, -458747, 262144, 1, -524283, 262144, 1, -589819, 262144, 1, -655355, 262144, 1, -720891, 262144, 1, -786427, 262144, 1, -851963, 262144, 1, -917499, 262144, 0, 393207, 983040, 4, 327671, 262144, 1, 262135, 262144, 1, 196599, 262144, 1, 131063, 786432, 3, 65527, 262144, 1, -9, 262144, 1, -65545, 262144, 1, -131081, 262144, 1, -196617, 262144, 1, -262153, 262144, 1, -327689, 262144, 1, -393225, 262144, 1, -458761, 262144, 1, -524297, 262144, 1, -589833, 262144, 1, -655369, 262144, 1, -720905, 262144, 1, -786441, 262144, 1, -851977, 262144, 0)
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(104, 80)
+position = Vector2(14, 148)
 collision_mask = 2
 script = ExtResource("1_fsmyg")
 metadata/_edit_group_ = true
@@ -578,3 +583,20 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_uigfg")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="FSM" type="Node" parent="Player"]
+script = ExtResource("18_j2pq5")
+
+[node name="Idle" type="Node" parent="Player/FSM"]
+script = ExtResource("19_lgwx2")
+
+[node name="Run" type="Node" parent="Player/FSM"]
+script = ExtResource("20_qheit")
+
+[node name="Jump" type="Node" parent="Player/FSM"]
+script = ExtResource("21_qgw4c")
+
+[node name="Fall" type="Node" parent="Player/FSM"]
+script = ExtResource("22_cgtws")
