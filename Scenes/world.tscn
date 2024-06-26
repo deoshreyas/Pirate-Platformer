@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://h7f30ew43voa"]
+[gd_scene load_steps=28 format=3 uid="uid://h7f30ew43voa"]
 
 [ext_resource type="Texture2D" uid="uid://ciu2clivng8pb" path="res://Assets/Captain-Clown-Nose-Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_afas5"]
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_fsmyg"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://Scripts/Player/States/player_run.gd" id="20_qheit"]
 [ext_resource type="Script" path="res://Scripts/Player/States/player_jump.gd" id="21_qgw4c"]
 [ext_resource type="Script" path="res://Scripts/Player/States/player_fall.gd" id="22_cgtws"]
+[ext_resource type="Script" path="res://Scripts/Player/input_handler.gd" id="23_c0sa8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b4juy"]
 texture = ExtResource("1_ywdkq")
@@ -600,3 +601,10 @@ script = ExtResource("21_qgw4c")
 
 [node name="Fall" type="Node" parent="Player/FSM"]
 script = ExtResource("22_cgtws")
+
+[node name="InputHandler" type="Node" parent="Player"]
+script = ExtResource("23_c0sa8")
+
+[node name="JumpBufferTimer" type="Timer" parent="Player/InputHandler"]
+process_callback = 0
+wait_time = 0.1
