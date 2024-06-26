@@ -1,7 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://h7f30ew43voa"]
+[gd_scene load_steps=30 format=3 uid="uid://h7f30ew43voa"]
 
+[ext_resource type="Texture2D" uid="uid://cs205kkgn8cyv" path="res://Assets/Palm-Tree-Island-Sprites/Background/BG Image.png" id="1_46tw8"]
 [ext_resource type="Texture2D" uid="uid://ciu2clivng8pb" path="res://Assets/Captain-Clown-Nose-Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_afas5"]
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_fsmyg"]
+[ext_resource type="Texture2D" uid="uid://d1ywf5g48fd1o" path="res://Assets/Palm-Tree-Island-Sprites/Background/Additional Sky.png" id="1_yfmbg"]
 [ext_resource type="Texture2D" uid="uid://dni0pv7cqx8sk" path="res://Assets/Palm-Tree-Island-Sprites/Terrain/Terrain (32x32).png" id="1_ywdkq"]
 [ext_resource type="Texture2D" uid="uid://dvxnmvx3v2m30" path="res://Assets/Captain-Clown-Nose-Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 02.png" id="2_62npu"]
 [ext_resource type="Texture2D" uid="uid://m7c4spe5iij4" path="res://Assets/Captain-Clown-Nose-Sprites/Captain Clown Nose/Captain Clown Nose without Sword/04-Fall/Fall 01.png" id="2_gopon"]
@@ -565,13 +567,29 @@ size = Vector2(14, 20)
 [node name="World" type="Node2D"]
 position = Vector2(1, 0)
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="BackgroundLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sky" type="Sprite2D" parent="ParallaxBackground/BackgroundLayer"]
+scale = Vector2(14, 1)
+texture = ExtResource("1_yfmbg")
+centered = false
+
+[node name="Background" type="Sprite2D" parent="ParallaxBackground/BackgroundLayer"]
+position = Vector2(0, 32)
+scale = Vector2(1.16667, 2.83594)
+texture = ExtResource("1_46tw8")
+centered = false
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_wa8x3")
 format = 2
-layer_0/tile_data = PackedInt32Array(393208, 65536, 4, 393209, 65536, 4, 393210, 65536, 4, 393211, 65536, 4, 393212, 65536, 4, 393213, 65536, 4, 393214, 65536, 4, 393215, 65536, 4, 327680, 65536, 4, 327681, 65536, 4, 327682, 65536, 4, 327683, 65536, 4, 327684, 65536, 4, 262141, 0, 4, 262142, 131072, 4, 196602, 0, 4, 196603, 131072, 4, 131064, 131072, 4, -6, 262144, 4, -65540, 262144, 4, -131074, 262144, 4, -262144, 0, 4, -262143, 131072, 4, 327685, 1048576, 4, 262149, 262144, 1, 196613, 262144, 1, 131077, 262144, 1, 65541, 262144, 1, 5, 262144, 1, -65531, 262144, 1, -131067, 262144, 1, -196603, 262144, 1, -262139, 262144, 1, -327675, 262144, 1, -393211, 262144, 1, -458747, 262144, 1, -524283, 262144, 1, -589819, 262144, 1, -655355, 262144, 1, -720891, 262144, 1, -786427, 262144, 1, -851963, 262144, 1, -917499, 262144, 0, 393207, 983040, 4, 327671, 262144, 1, 262135, 262144, 1, 196599, 262144, 1, 131063, 786432, 3, 65527, 262144, 1, -9, 262144, 1, -65545, 262144, 1, -131081, 262144, 1, -196617, 262144, 1, -262153, 262144, 1, -327689, 262144, 1, -393225, 262144, 1, -458761, 262144, 1, -524297, 262144, 1, -589833, 262144, 1, -655369, 262144, 1, -720905, 262144, 1, -786441, 262144, 1, -851977, 262144, 0)
+layer_0/tile_data = PackedInt32Array(0, 262144, 1, 65536, 262144, 1, 131072, 786432, 3, 196608, 262144, 1, 262144, 262144, 1, 327680, 262144, 1, 393216, 393216, 4, 458752, 0, 1, 524288, 0, 2, 524289, 65536, 2, 524290, 589824, 4, 524291, 65536, 4, 524292, 65536, 4, 524293, 65536, 4, 524294, 65536, 4, 524295, 65536, 4, 524296, 65536, 4, 524297, 65536, 4, 524298, 65536, 4, 524299, 655360, 4, 524300, 65536, 2, 524301, 131072, 2, 458765, 131072, 1, 393229, 458752, 4, 327693, 262144, 1, 262157, 262144, 1, 196621, 262144, 1, 131085, 262144, 1, 65549, 262144, 1, 13, 262144, 1, -65523, 262144, 1, -131059, 851968, 4, -196595, 262144, 1, -262131, 262144, 1, -65536, 262144, 1, -131072, 786432, 3, -196608, 262144, 1, -262144, 262144, 1, 458754, 131072, 0, 458753, 393216, 1, 393217, 131072, 0, 262147, 0, 4, 262148, 65536, 4, 262149, 131072, 4, 131073, 131072, 4, 65540, 262144, 4, 6, 262144, 4, -65528, 0, 4, -65527, 65536, 4, -65526, 131072, 4, -327667, 262144, 0, -327680, 262144, 0, -131060, 0, 4, -262134, 131072, 4, -262135, 65536, 4, -262136, 0, 4, -262138, 262144, 4, -196604, 262144, 4, -131070, 131072, 4, -131071, 65536, 4, 458763, 0, 0, 458764, 458752, 1, 393228, 0, 0, 262154, 131072, 4, 262153, 65536, 4, 262152, 0, 4)
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(14, 148)
+position = Vector2(221, 187)
 collision_mask = 2
 script = ExtResource("1_fsmyg")
 metadata/_edit_group_ = true
@@ -586,6 +604,13 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_uigfg")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = 2
+limit_right = 447
+limit_bottom = 286
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
 
 [node name="FSM" type="Node" parent="Player"]
 script = ExtResource("18_j2pq5")
@@ -602,9 +627,15 @@ script = ExtResource("21_qgw4c")
 [node name="Fall" type="Node" parent="Player/FSM"]
 script = ExtResource("22_cgtws")
 
+[node name="CoyoteTimer" type="Timer" parent="Player/FSM/Fall"]
+process_callback = 0
+wait_time = 0.1
+one_shot = true
+
 [node name="InputHandler" type="Node" parent="Player"]
 script = ExtResource("23_c0sa8")
 
 [node name="JumpBufferTimer" type="Timer" parent="Player/InputHandler"]
 process_callback = 0
 wait_time = 0.1
+one_shot = true
