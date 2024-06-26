@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://h7f30ew43voa"]
+[gd_scene load_steps=41 format=3 uid="uid://ki4q36faqe1t"]
 
 [ext_resource type="Texture2D" uid="uid://cs205kkgn8cyv" path="res://Assets/Palm-Tree-Island-Sprites/Background/BG Image.png" id="1_46tw8"]
 [ext_resource type="Texture2D" uid="uid://ciu2clivng8pb" path="res://Assets/Captain-Clown-Nose-Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_afas5"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://b0tjdjkw5wjen" path="res://Assets/Palm-Tree-Island-Sprites/Background/Small Cloud 3.png" id="7_l17ec"]
 [ext_resource type="Texture2D" uid="uid://cbfcw1hb5hg8w" path="res://Assets/Captain-Clown-Nose-Sprites/Captain Clown Nose/Captain Clown Nose without Sword/03-Jump/Jump 01.png" id="8_odi8i"]
 [ext_resource type="Texture2D" uid="uid://lme7ypua3jmy" path="res://Assets/Captain-Clown-Nose-Sprites/Captain Clown Nose/Captain Clown Nose without Sword/03-Jump/Jump 02.png" id="9_n4mc4"]
+[ext_resource type="PackedScene" uid="uid://irjmo1ypyve0" path="res://Scenes/gold_coin.tscn" id="9_oc5gu"]
 [ext_resource type="Texture2D" uid="uid://bk0xk4urfmexh" path="res://Assets/Captain-Clown-Nose-Sprites/Captain Clown Nose/Captain Clown Nose without Sword/03-Jump/Jump 03.png" id="10_sngvq"]
 [ext_resource type="Texture2D" uid="uid://dq3ik30f7j2yg" path="res://Assets/Captain-Clown-Nose-Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 01.png" id="11_x0dsm"]
 [ext_resource type="Texture2D" uid="uid://de4akv1x2rowa" path="res://Assets/Captain-Clown-Nose-Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 02.png" id="12_qu4e6"]
@@ -30,6 +31,11 @@
 [ext_resource type="Script" path="res://Scripts/Player/States/player_jump.gd" id="21_qgw4c"]
 [ext_resource type="Script" path="res://Scripts/Player/States/player_fall.gd" id="22_cgtws"]
 [ext_resource type="Script" path="res://Scripts/Player/input_handler.gd" id="23_c0sa8"]
+[ext_resource type="Script" path="res://Scripts/manager.gd" id="32_nt4ql"]
+[ext_resource type="Script" path="res://Scenes/CoinGroup.gd" id="33_6fskd"]
+[ext_resource type="Texture2D" uid="uid://cdi1gwn3j3737" path="res://Assets/HUD/12.png" id="33_65qwt"]
+[ext_resource type="Texture2D" uid="uid://ckwfhb7we6n7h" path="res://Assets/HUD/11.png" id="34_uxttt"]
+[ext_resource type="FontFile" uid="uid://doxqgvnvrf5r2" path="res://Assets/HUD/ShareTechMono-Regular.ttf" id="35_2deyv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b4juy"]
 texture = ExtResource("1_ywdkq")
@@ -631,6 +637,74 @@ tile_set = SubResource("TileSet_wa8x3")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 262144, 1, 65536, 262144, 1, 131072, 786432, 3, 196608, 262144, 1, 262144, 262144, 1, 327680, 262144, 1, 393216, 393216, 4, 458752, 0, 1, 524288, 0, 2, 524289, 65536, 2, 524290, 589824, 4, 524291, 65536, 4, 524292, 65536, 4, 524293, 65536, 4, 524294, 65536, 4, 524295, 65536, 4, 524296, 65536, 4, 524297, 65536, 4, 524298, 65536, 4, 524299, 655360, 4, 524300, 65536, 2, 524301, 131072, 2, 458765, 131072, 1, 393229, 458752, 4, 327693, 262144, 1, 262157, 262144, 1, 196621, 262144, 1, 131085, 262144, 1, 65549, 262144, 1, 13, 262144, 1, -65523, 262144, 1, -131059, 851968, 4, -196595, 262144, 1, -262131, 262144, 1, -65536, 262144, 1, -131072, 786432, 3, -196608, 262144, 1, -262144, 262144, 1, 458754, 131072, 0, 458753, 393216, 1, 393217, 131072, 0, 262147, 0, 4, 262148, 65536, 4, 262149, 131072, 4, 131073, 131072, 4, 65540, 262144, 4, 6, 262144, 4, -65528, 0, 4, -65527, 65536, 4, -65526, 131072, 4, -327667, 262144, 0, -327680, 262144, 0, -131060, 0, 4, -262134, 131072, 4, -262135, 65536, 4, -262136, 0, 4, -262138, 262144, 4, -196604, 262144, 4, -131070, 131072, 4, -131071, 65536, 4, 458763, 0, 0, 458764, 458752, 1, 393228, 0, 0, 262154, 131072, 4, 262153, 65536, 4, 262152, 0, 4)
 
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="GoldCoin2" parent="Coins" instance=ExtResource("9_oc5gu")]
+position = Vector2(170, 245)
+
+[node name="GoldCoin3" parent="Coins" instance=ExtResource("9_oc5gu")]
+position = Vector2(223, 245)
+
+[node name="GoldCoin4" parent="Coins" instance=ExtResource("9_oc5gu")]
+position = Vector2(279, 246)
+
+[node name="GoldCoin5" parent="Coins" instance=ExtResource("9_oc5gu")]
+position = Vector2(335, 246)
+
+[node name="GoldCoin6" parent="Coins" instance=ExtResource("9_oc5gu")]
+position = Vector2(369, 211)
+
+[node name="GoldCoin7" parent="Coins" instance=ExtResource("9_oc5gu")]
+position = Vector2(405, 183)
+
+[node name="GoldCoin8" parent="Coins" instance=ExtResource("9_oc5gu")]
+position = Vector2(77, 212)
+
+[node name="GoldCoin9" parent="Coins" instance=ExtResource("9_oc5gu")]
+position = Vector2(48, 184)
+
+[node name="GoldCoin10" parent="Coins" instance=ExtResource("9_oc5gu")]
+position = Vector2(146, 117)
+
+[node name="GoldCoin11" parent="Coins" instance=ExtResource("9_oc5gu")]
+position = Vector2(230, 68)
+
+[node name="GoldCoin12" parent="Coins" instance=ExtResource("9_oc5gu")]
+position = Vector2(306, 114)
+
+[node name="GoldCoin13" parent="Coins" instance=ExtResource("9_oc5gu")]
+position = Vector2(146, 20)
+
+[node name="GoldCoin14" parent="Coins" instance=ExtResource("9_oc5gu")]
+position = Vector2(47, 54)
+
+[node name="GoldCoin15" parent="Coins" instance=ExtResource("9_oc5gu")]
+position = Vector2(208, -10)
+
+[node name="GoldCoin16" parent="Coins" instance=ExtResource("9_oc5gu")]
+position = Vector2(305, -42)
+
+[node name="GoldCoin17" parent="Coins" instance=ExtResource("9_oc5gu")]
+position = Vector2(404, -74)
+
+[node name="GoldCoin18" parent="Coins" instance=ExtResource("9_oc5gu")]
+position = Vector2(64, -73)
+
+[node name="GoldCoin19" parent="Coins" instance=ExtResource("9_oc5gu")]
+position = Vector2(144, -106)
+
+[node name="GoldCoin20" parent="Coins" instance=ExtResource("9_oc5gu")]
+position = Vector2(206, -138)
+
+[node name="GoldCoin21" parent="Coins" instance=ExtResource("9_oc5gu")]
+position = Vector2(302, -139)
+
+[node name="GoldCoin22" parent="Coins" instance=ExtResource("9_oc5gu")]
+position = Vector2(432, -172)
+
+[node name="GoldCoin23" parent="Coins" instance=ExtResource("9_oc5gu")]
+position = Vector2(65, -128)
+
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(234, 209)
 collision_mask = 2
@@ -682,3 +756,46 @@ script = ExtResource("23_c0sa8")
 process_callback = 0
 wait_time = 0.1
 one_shot = true
+
+[node name="Manager" type="Node" parent="."]
+script = ExtResource("32_nt4ql")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="CoinGroup" type="Node" parent="HUD"]
+script = ExtResource("33_6fskd")
+
+[node name="12" type="Sprite2D" parent="HUD/CoinGroup"]
+position = Vector2(90, 19)
+scale = Vector2(2, 1.5)
+texture = ExtResource("33_65qwt")
+
+[node name="11" type="Sprite2D" parent="HUD/CoinGroup"]
+position = Vector2(20, 19)
+scale = Vector2(3, 1.5)
+texture = ExtResource("34_uxttt")
+
+[node name="Label" type="Label" parent="HUD/CoinGroup"]
+offset_left = 20.0
+offset_top = 9.0
+offset_right = 69.0
+offset_bottom = 30.0
+scale = Vector2(0.33, 0.33)
+theme_override_fonts/font = ExtResource("35_2deyv")
+theme_override_font_sizes/font_size = 45
+text = "Coins:"
+
+[node name="CoinCount" type="Label" parent="HUD/CoinGroup"]
+offset_left = 67.0
+offset_top = 10.0
+offset_right = 107.0
+offset_bottom = 36.0
+scale = Vector2(0.33, 0.33)
+theme_override_fonts/font = ExtResource("35_2deyv")
+theme_override_font_sizes/font_size = 45
+text = "0
+"
+
+[connection signal="child_exiting_tree" from="Coins" to="Manager" method="_on_coins_child_exiting_tree"]
+[connection signal="incrementCoinCount" from="Coins/GoldCoin19" to="Manager" method="_on_gold_coin_19_increment_coin_count"]
+[connection signal="changeCoinLabel" from="Manager" to="HUD/CoinGroup" method="_on_manager_change_coin_label"]

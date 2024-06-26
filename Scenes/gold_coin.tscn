@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=3 uid="uid://irjmo1ypyve0"]
+
+[ext_resource type="Script" path="res://Scripts/Collectables/goldcoin.gd" id="1_tkx22"]
+[ext_resource type="Texture2D" uid="uid://c6jmmhxs5ppnc" path="res://Assets/Coin-Effect-Sprites/01.png" id="2_3cf1v"]
+[ext_resource type="Texture2D" uid="uid://ecfi1if38n5e" path="res://Assets/Coin-Effect-Sprites/02.png" id="3_wmpbu"]
+[ext_resource type="Texture2D" uid="uid://xq2ybuxxteuo" path="res://Assets/Coin-Effect-Sprites/03.png" id="4_thgux"]
+[ext_resource type="Texture2D" uid="uid://cwrfbbk4qrlq0" path="res://Assets/Gold-Coin-Sprites/01.png" id="5_76tyf"]
+[ext_resource type="Texture2D" uid="uid://bb7nwyfoeyu60" path="res://Assets/Gold-Coin-Sprites/02.png" id="6_6141e"]
+[ext_resource type="Texture2D" uid="uid://1lcvxyexxis1" path="res://Assets/Gold-Coin-Sprites/03.png" id="7_dpdhp"]
+[ext_resource type="Texture2D" uid="uid://clgmn54wn8ivx" path="res://Assets/Gold-Coin-Sprites/04.png" id="8_g4mhu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v6clm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3cf1v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wmpbu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_thgux")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"collect",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_76tyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6141e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dpdhp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_g4mhu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3jp10"]
+radius = 6.08276
+
+[node name="GoldCoin" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_tkx22")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v6clm")
+animation = &"collect"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3jp10")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
