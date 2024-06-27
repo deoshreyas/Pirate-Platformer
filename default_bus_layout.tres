@@ -1,0 +1,16 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://dmr3en280s4y3"]
+
+[resource]
+bus/0/volume_db = 6.02
+bus/1/name = &"BgMusic"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -14.8151
+bus/1/send = &"BgMusic 2"
+bus/2/name = &"SFX"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = -19.9024
+bus/2/send = &"Master"

@@ -2,12 +2,15 @@ extends PlayerBaseState
 
 var variable_jump_height
 
+@onready var sfx = $JumpSFX
+
 func enter():
 	play("idle")
 	object.velocity.y = -400
 	object.velocity.x = input.x * Player.MAX_SPEED
 	variable_jump_height = false 
 	input.jump_buffer = false 
+	sfx.play()
 	
 func physics_update(delta):
 	move(delta, true)
