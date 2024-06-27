@@ -19,5 +19,5 @@ var jump_buffer:
 
 func update():
 	x = Input.get_axis("btn_left", "btn_right")
-	jump_just_pressed = Input.is_action_just_pressed("btn_space")
-	jump_pressed = Input.is_action_pressed("btn_space")
+	jump_just_pressed = Input.is_action_just_pressed("btn_up")
+	jump_pressed = Input.is_action_pressed("btn_up")
