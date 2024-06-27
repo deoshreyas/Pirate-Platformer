@@ -1,9 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://ddd0hmoixdrsj"]
+[gd_scene load_steps=33 format=3 uid="uid://dnba3ejwqpgld"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/LevelScript.gd" id="1_3qdac"]
 [ext_resource type="Texture2D" uid="uid://dni0pv7cqx8sk" path="res://Assets/Palm-Tree-Island-Sprites/Terrain/Terrain (32x32).png" id="1_pg4io"]
-[ext_resource type="PackedScene" uid="uid://irjmo1ypyve0" path="res://Scenes/gold_coin.tscn" id="2_tif3f"]
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="3_82r1m"]
+[ext_resource type="PackedScene" uid="uid://irjmo1ypyve0" path="res://Scenes/Collectables/gold_coin.tscn" id="3_rcq5s"]
 [ext_resource type="Texture2D" uid="uid://m7c4spe5iij4" path="res://Assets/Captain-Clown-Nose-Sprites/Captain Clown Nose/Captain Clown Nose without Sword/04-Fall/Fall 01.png" id="4_plblc"]
 [ext_resource type="Texture2D" uid="uid://ciu2clivng8pb" path="res://Assets/Captain-Clown-Nose-Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="5_cvw4f"]
 [ext_resource type="Texture2D" uid="uid://dvxnmvx3v2m30" path="res://Assets/Captain-Clown-Nose-Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 02.png" id="6_wqv3o"]
@@ -27,9 +27,7 @@
 [ext_resource type="Script" path="res://Scripts/Player/States/player_fall.gd" id="24_kegg1"]
 [ext_resource type="Script" path="res://Scripts/Player/input_handler.gd" id="25_1p4p1"]
 [ext_resource type="Script" path="res://Scripts/manager.gd" id="26_nhunq"]
-[ext_resource type="Texture2D" uid="uid://cdi1gwn3j3737" path="res://Assets/HUD/12.png" id="29_45woo"]
-[ext_resource type="Texture2D" uid="uid://ckwfhb7we6n7h" path="res://Assets/HUD/11.png" id="30_1pp3w"]
-[ext_resource type="FontFile" uid="uid://doxqgvnvrf5r2" path="res://Assets/HUD/ShareTechMono-Regular.ttf" id="31_ngvr7"]
+[ext_resource type="Theme" uid="uid://0h4kiui2brvm" path="res://Scenes/Themes/small-banner.tres" id="28_wkfmp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b4juy"]
 texture = ExtResource("1_pg4io")
@@ -575,72 +573,303 @@ script = ExtResource("1_3qdac")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_wa8x3")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 262144, 1, 65536, 262144, 1, 131072, 786432, 3, 196608, 262144, 1, 262144, 262144, 1, 327680, 262144, 1, 393216, 393216, 4, 458752, 0, 1, 524288, 0, 2, 524289, 65536, 2, 524290, 589824, 4, 524291, 65536, 4, 524292, 65536, 4, 524293, 65536, 4, 524294, 65536, 4, 524295, 65536, 4, 524296, 65536, 4, 524297, 65536, 4, 524298, 65536, 4, 524299, 655360, 4, 524300, 65536, 2, 524301, 131072, 2, 458765, 131072, 1, 393229, 458752, 4, 327693, 262144, 1, 262157, 262144, 1, 196621, 262144, 1, 131085, 262144, 1, 65549, 262144, 1, 13, 262144, 1, -65523, 262144, 1, -131059, 851968, 4, -196595, 262144, 1, -262131, 262144, 1, -65536, 262144, 1, -131072, 786432, 3, -196608, 262144, 1, -262144, 262144, 1, 458754, 131072, 0, 458753, 393216, 1, 393217, 131072, 0, 262147, 0, 4, 262148, 65536, 4, 262149, 131072, 4, 131073, 131072, 4, 65540, 262144, 4, 6, 262144, 4, -65528, 0, 4, -65527, 65536, 4, -65526, 131072, 4, -327667, 262144, 0, -327680, 262144, 0, -131060, 0, 4, -262134, 131072, 4, -262135, 65536, 4, -262136, 0, 4, -262138, 262144, 4, -196604, 262144, 4, -131070, 131072, 4, -131071, 65536, 4, 458763, 0, 0, 458764, 458752, 1, 393228, 0, 0, 262154, 131072, 4, 262153, 65536, 4, 262152, 0, 4)
+layer_0/tile_data = PackedInt32Array(0, 262144, 1, 65536, 262144, 1, 131072, 786432, 3, 196608, 262144, 1, 262144, 262144, 1, 327680, 262144, 1, 393216, 393216, 4, 458752, 0, 1, 524288, 0, 2, 524289, 65536, 2, 524290, 589824, 4, 524291, 65536, 4, 524292, 65536, 4, 524293, 65536, 4, 524294, 65536, 4, 524295, 65536, 4, 524296, 65536, 4, 524297, 65536, 4, 524298, 65536, 4, 524299, 655360, 4, 524300, 65536, 2, 524301, 131072, 2, 458765, 131072, 1, 393229, 458752, 4, 327693, 262144, 1, 262157, 262144, 1, 196621, 262144, 1, 131085, 262144, 1, 65549, 262144, 1, 13, 262144, 1, -65523, 262144, 1, -131059, 851968, 4, -196595, 262144, 1, -262131, 262144, 1, -65536, 262144, 1, -131072, 786432, 3, -196608, 262144, 1, -262144, 262144, 1, 458754, 131072, 0, 458753, 393216, 1, 393217, 131072, 0, 262147, 0, 4, 262148, 65536, 4, 262149, 131072, 4, 131073, 131072, 4, 65540, 262144, 4, 6, 262144, 4, -65528, 0, 4, -65527, 65536, 4, -65526, 131072, 4, -327667, 262144, 1, -327680, 262144, 1, -131060, 0, 4, -262134, 131072, 4, -262135, 65536, 4, -262136, 0, 4, -262138, 262144, 4, -196604, 262144, 4, -131070, 131072, 4, -131071, 65536, 4, 458763, 0, 0, 458764, 458752, 1, 393228, 0, 0, 262154, 131072, 4, 262153, 65536, 4, 262152, 0, 4, -393216, 262144, 1, -393203, 851968, 4, -458739, 262144, 1, -524275, 262144, 1, -589811, 262144, 1, -655347, 262144, 1, -720883, 262144, 1, -786419, 851968, 4, -851955, 262144, 1, -458752, 262144, 1, -524288, 262144, 1, -589824, 262144, 1, -655360, 786432, 3, -720896, 262144, 1, -786432, 262144, 1, -851968, 262144, 1, -393205, 0, 4, -393204, 65536, 4, -458743, 262144, 4, -524281, 262144, 4, -589819, 262144, 4, -655357, 131072, 4, -655358, 65536, 4, -655359, 65536, 4, -720890, 0, 4, -720889, 131072, 4, -720887, 0, 4, -720886, 131072, 4, -786420, 0, 4, -917491, 262144, 1, -983027, 262144, 1, -1048563, 262144, 1, -1114099, 262144, 1, -1179635, 262144, 1, -1245171, 262144, 1, -1310707, 262144, 1, -1376243, 851968, 4, -917504, 262144, 1, -983040, 262144, 1, -1048576, 262144, 1, -1114112, 262144, 1, -1179648, 262144, 1, -1245184, 786432, 3, -1310720, 262144, 1, -1376256, 262144, 1, -917493, 262144, 4, -983031, 262144, 4, -1048569, 262144, 4, -1114107, 262144, 4, -1179645, 262144, 4, -1245183, 131072, 4, -1376254, 0, 4, -1376253, 65536, 4, -1376252, 131072, 4, -1376250, 0, 4, -1376249, 65536, 4, -1376248, 131072, 4, -1376246, 262144, 4, -1376244, 0, 4, -1441779, 262144, 1, -1507315, 262144, 1, -1572851, 262144, 1, -1638387, 262144, 1, -1703923, 262144, 1, -1769459, 262144, 1, -1441792, 262144, 1, -1507328, 786432, 3, -1572864, 262144, 1, -1638400, 786432, 3, -1703936, 262144, 1, -1769472, 786432, 3, -1835008, 262144, 1, -1900544, 262144, 1, -1966080, 262144, 1, -2031616, 262144, 1, -2097152, 786432, 3, -2162688, 262144, 1, -2228224, 262144, 1, -2293760, 262144, 1, -2359296, 262144, 1, -1834995, 262144, 1, -1900531, 262144, 1, -1966067, 262144, 1, -2097139, 262144, 1, -2031603, 262144, 1, -2162675, 262144, 1, -2228211, 262144, 1, -2293747, 262144, 1, -2359283, 262144, 1, -1507327, 131072, 4, -1572861, 262144, 4, -1638399, 131072, 4, -1703933, 262144, 4, -1769471, 131072, 4, -1769467, 0, 4, -1769466, 65536, 4, -1769465, 131072, 4, -1834999, 262144, 4, -1900533, 262144, 4, -1966071, 131072, 4, -1966072, 65536, 4, -1966073, 0, 4, -2031611, 262144, 4, -2097149, 262144, 4, -2097151, 131072, 4, -2424832, 262144, 1, -2490368, 262144, 1, -2555904, 262144, 1, -2621440, 786432, 3, -2686976, 262144, 1, -2424819, 262144, 1, -2490355, 262144, 1, -2555891, 851968, 4, -2621427, 262144, 1, -2686963, 262144, 1, -2228222, 262144, 4, -2293756, 262144, 4, -2359290, 262144, 4, -2424824, 262144, 4, -2490358, 262144, 4, -2555892, 0, 4, -2228215, 262144, 4, -2228213, 262144, 4, -2097142, 262144, 4, -2424828, 262144, 4, -2490366, 262144, 4, -2621439, 131072, 4, -2686973, 0, 4, -2686972, 65536, 4, -2686971, 131072, 4, -2686969, 0, 4, -2686968, 131072, 4, -2686966, 262144, 4, -2752499, 262144, 1, -2818035, 262144, 1, -2883571, 851968, 4, -2949107, 262144, 1, -3014643, 262144, 1, -3080179, 262144, 1, -3145715, 851968, 4, -3211251, 262144, 1, -2752512, 262144, 1, -2818048, 262144, 1, -2883584, 262144, 1, -2949120, 262144, 1, -3014656, 262144, 1, -3080192, 262144, 1, -3145727, 131072, 4, -3145728, 786432, 3, -3211264, 262144, 1, -3276800, 262144, 1, -3276787, 262144, 1, -2818046, 262144, 4, -2883580, 262144, 4, -2949114, 262144, 4, -3014648, 262144, 4, -3145721, 131072, 4, -3145722, 65536, 4, -3145723, 0, 4, -3145725, 262144, 4, -3145718, 0, 4, -3145717, 65536, 4, -3145716, 65536, 4, -2883575, 0, 4, -2883574, 65536, 4, -2883573, 65536, 4, -2883572, 65536, 4, -3342336, 262144, 1, -3407872, 262144, 1, -3473408, 262144, 1, -3538944, 262144, 1, -3604480, 262144, 1, -3670016, 262144, 1, -3342323, 262144, 1, -3407859, 262144, 1, -3473395, 262144, 1, -3538931, 262144, 1, -3604467, 262144, 1, -3670003, 262144, 1, -3276796, 262144, 4, -3342334, 262144, 4, -3407868, 262144, 4, -3604471, 262144, 0, -3604475, 131072, 4, -3604476, 65536, 4, -3604477, 65536, 4, -3604478, 0, 4, -3735552, 262144, 1, -3801088, 262144, 1, -3866624, 262144, 1, -3997696, 786432, 3, -3932160, 262144, 1, -4063232, 262144, 1, -4128768, 262144, 1, -4194304, 262144, 1, -4259840, 262144, 1, -3735539, 262144, 1, -3801075, 851968, 4, -3866611, 262144, 1, -3932147, 262144, 1, -3997683, 262144, 1, -4063219, 851968, 4, -4128755, 262144, 1, -4194291, 262144, 1, -4259827, 262144, 1, -3735544, 262144, 4, -3735542, 262144, 4, -3801076, 0, 4, -3932149, 262144, 4, -4063220, 0, 4, -4063222, 131072, 4, -4063223, 65536, 4, -4063224, 0, 4, -3997690, 262144, 4, -3932156, 262144, 4, -3997694, 131072, 4, -3997695, 65536, 4, -4325376, 262144, 1, -4390912, 262144, 1, -4456448, 262144, 1, -4521984, 262144, 1, -4587520, 262144, 1, -4653056, 262144, 1, -4718592, 262144, 1, -4784128, 262144, 1, -4849664, 262144, 1, -4915200, 262144, 1, -4325363, 262144, 1, -4390899, 262144, 1, -4456435, 262144, 1, -4521971, 851968, 4, -4587507, 262144, 1, -4653043, 262144, 1, -4718579, 262144, 1, -4784115, 262144, 1, -4849651, 262144, 1, -4915187, 262144, 1, -4980736, 786432, 3, -5046272, 262144, 1, -5111808, 262144, 1, -5177344, 262144, 1, -5242880, 983040, 3, -5242879, 65536, 4, -5242878, 65536, 4, -5242877, 65536, 4, -5242876, 65536, 4, -5242875, 65536, 4, -5242874, 65536, 4, -5242873, 65536, 4, -5242872, 65536, 4, -5242871, 65536, 4, -5242870, 65536, 4, -5242869, 65536, 4, -5242868, 65536, 4, -5242867, 1048576, 3, -5177331, 262144, 1, -5111795, 458752, 4, -5046259, 458752, 3, -4980723, 262144, 1, -4128765, 262144, 4, -4194299, 262144, 4, -4259833, 262144, 4, -4325367, 262144, 4, -4390901, 262144, 4, -4521972, 0, 4, -4587510, 262144, 4, -4718582, 262144, 4, -4849654, 131072, 4, -4849655, 0, 4, -4849657, 131072, 4, -4849658, 0, 4, -4849660, 131072, 4, -4849661, 0, 4, -4915198, 262144, 4, -4980735, 131072, 4, -5046268, 0, 4, -5046267, 65536, 4, -5046266, 65536, 4, -5046265, 65536, 4, -5046264, 65536, 4, -5046263, 65536, 4, -5046262, 65536, 4, -5046261, 655360, 4, -5046260, 65536, 2, -5111797, 0, 0, -5111796, 65536, 0, -4587513, 131072, 4, -4587514, 65536, 4, -4587515, 65536, 4, -4587516, 65536, 4, -4587517, 0, 4, -3473402, 262144, 4, -3538936, 0, 4, -3538935, 1048576, 4)
 
 [node name="Coins" type="Node2D" parent="."]
 
-[node name="GoldCoin2" parent="Coins" instance=ExtResource("2_tif3f")]
-position = Vector2(170, 245)
+[node name="GoldCoin" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(80, 215)
 
-[node name="GoldCoin4" parent="Coins" instance=ExtResource("2_tif3f")]
-position = Vector2(279, 246)
+[node name="GoldCoin2" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(46, 180)
 
-[node name="GoldCoin5" parent="Coins" instance=ExtResource("2_tif3f")]
-position = Vector2(335, 246)
+[node name="GoldCoin7" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(44, 55)
 
-[node name="GoldCoin6" parent="Coins" instance=ExtResource("2_tif3f")]
-position = Vector2(369, 211)
+[node name="GoldCoin8" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(144, 23)
 
-[node name="GoldCoin7" parent="Coins" instance=ExtResource("2_tif3f")]
-position = Vector2(405, 183)
+[node name="GoldCoin9" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(209, -9)
 
-[node name="GoldCoin8" parent="Coins" instance=ExtResource("2_tif3f")]
-position = Vector2(77, 212)
+[node name="GoldCoin10" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(303, -43)
 
-[node name="GoldCoin9" parent="Coins" instance=ExtResource("2_tif3f")]
-position = Vector2(48, 184)
+[node name="GoldCoin11" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(402, -74)
 
-[node name="GoldCoin10" parent="Coins" instance=ExtResource("2_tif3f")]
-position = Vector2(146, 117)
+[node name="GoldCoin12" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(303, -140)
 
-[node name="GoldCoin11" parent="Coins" instance=ExtResource("2_tif3f")]
-position = Vector2(230, 68)
+[node name="GoldCoin13" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(207, -139)
 
-[node name="GoldCoin12" parent="Coins" instance=ExtResource("2_tif3f")]
-position = Vector2(306, 114)
-
-[node name="GoldCoin13" parent="Coins" instance=ExtResource("2_tif3f")]
-position = Vector2(146, 20)
-
-[node name="GoldCoin14" parent="Coins" instance=ExtResource("2_tif3f")]
-position = Vector2(47, 54)
-
-[node name="GoldCoin15" parent="Coins" instance=ExtResource("2_tif3f")]
-position = Vector2(208, -10)
-
-[node name="GoldCoin16" parent="Coins" instance=ExtResource("2_tif3f")]
-position = Vector2(305, -42)
-
-[node name="GoldCoin17" parent="Coins" instance=ExtResource("2_tif3f")]
-position = Vector2(404, -74)
-
-[node name="GoldCoin18" parent="Coins" instance=ExtResource("2_tif3f")]
-position = Vector2(64, -73)
-
-[node name="GoldCoin19" parent="Coins" instance=ExtResource("2_tif3f")]
+[node name="GoldCoin14" parent="Coins" instance=ExtResource("3_rcq5s")]
 position = Vector2(144, -106)
 
-[node name="GoldCoin20" parent="Coins" instance=ExtResource("2_tif3f")]
-position = Vector2(206, -138)
+[node name="GoldCoin15" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(59, -75)
 
-[node name="GoldCoin21" parent="Coins" instance=ExtResource("2_tif3f")]
-position = Vector2(302, -139)
+[node name="GoldCoin16" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(60, -113)
 
-[node name="GoldCoin22" parent="Coins" instance=ExtResource("2_tif3f")]
-position = Vector2(432, -172)
+[node name="GoldCoin3" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(144, 115)
 
-[node name="GoldCoin23" parent="Coins" instance=ExtResource("2_tif3f")]
-position = Vector2(65, -128)
+[node name="GoldCoin4" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(307, 115)
+
+[node name="GoldCoin5" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(371, 215)
+
+[node name="GoldCoin6" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(404, 182)
+
+[node name="GoldCoin17" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(80, -1775)
+
+[node name="GoldCoin82" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(146, -1931)
+
+[node name="GoldCoin83" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(212, -1965)
+
+[node name="GoldCoin84" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(310, -1997)
+
+[node name="GoldCoin85" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(404, -1999)
+
+[node name="GoldCoin86" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(242, -2097)
+
+[node name="GoldCoin87" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(180, -2061)
+
+[node name="GoldCoin88" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(118, -2031)
+
+[node name="GoldCoin89" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(59, -1967)
+
+[node name="GoldCoin90" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(306, -2131)
+
+[node name="GoldCoin91" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(370, -2155)
+
+[node name="GoldCoin92" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(402, -2223)
+
+[node name="GoldCoin93" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(340, -2253)
+
+[node name="GoldCoin94" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(338, -2317)
+
+[node name="GoldCoin95" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(180, -2255)
+
+[node name="GoldCoin96" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(328, -2381)
+
+[node name="GoldCoin97" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(228, -2381)
+
+[node name="GoldCoin98" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(132, -2383)
+
+[node name="GoldCoin99" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(84, -2415)
+
+[node name="GoldCoin101" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(46, -2453)
+
+[node name="GoldCoin102" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(58, -2169)
+
+[node name="GoldCoin103" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(56, -2095)
+
+[node name="GoldCoin104" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(58, -2027)
+
+[node name="GoldCoin100" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(392, -2509)
+
+[node name="GoldCoin18" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(304, -1771)
+
+[node name="GoldCoin25" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(144, -1674)
+
+[node name="GoldCoin26" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(80, -1642)
+
+[node name="GoldCoin27" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(43, -1546)
+
+[node name="GoldCoin28" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(143, -1609)
+
+[node name="GoldCoin29" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(111, -1547)
+
+[node name="GoldCoin30" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(204, -1546)
+
+[node name="GoldCoin31" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(374, -1545)
+
+[node name="GoldCoin32" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(271, -1480)
+
+[node name="GoldCoin33" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(208, -1449)
+
+[node name="GoldCoin34" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(143, -1418)
+
+[node name="GoldCoin35" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(78, -1385)
+
+[node name="GoldCoin36" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(43, -1291)
+
+[node name="GoldCoin37" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(142, -1324)
+
+[node name="GoldCoin38" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(252, -1324)
+
+[node name="GoldCoin39" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(346, -1419)
+
+[node name="GoldCoin40" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(334, -1322)
+
+[node name="GoldCoin41" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(403, -1258)
+
+[node name="GoldCoin42" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(335, -1225)
+
+[node name="GoldCoin43" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(270, -1194)
+
+[node name="GoldCoin44" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(207, -1163)
+
+[node name="GoldCoin45" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(144, -1197)
+
+[node name="GoldCoin46" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(80, -1227)
+
+[node name="GoldCoin47" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(145, -1130)
+
+[node name="GoldCoin48" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(81, -1103)
+
+[node name="GoldCoin49" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(44, -1040)
+
+[node name="GoldCoin50" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(304, -1132)
+
+[node name="GoldCoin51" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(370, -1172)
+
+[node name="GoldCoin52" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(339, -1035)
+
+[node name="GoldCoin53" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(368, -939)
+
+[node name="GoldCoin54" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(270, -970)
+
+[node name="GoldCoin55" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(177, -1001)
+
+[node name="GoldCoin56" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(114, -1033)
+
+[node name="GoldCoin57" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(208, -874)
+
+[node name="GoldCoin58" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(304, -905)
+
+[node name="GoldCoin59" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(46, -874)
+
+[node name="GoldCoin60" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(112, -842)
+
+[node name="GoldCoin61" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(46, -808)
+
+[node name="GoldCoin62" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(112, -773)
+
+[node name="GoldCoin63" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(109, -684)
+
+[node name="GoldCoin64" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(42, -750)
+
+[node name="GoldCoin65" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(241, -682)
+
+[node name="GoldCoin66" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(335, -680)
+
+[node name="GoldCoin67" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(404, -680)
+
+[node name="GoldCoin68" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(44, -617)
+
+[node name="GoldCoin69" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(113, -585)
+
+[node name="GoldCoin70" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(175, -554)
+
+[node name="GoldCoin71" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(240, -520)
+
+[node name="GoldCoin72" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(303, -489)
+
+[node name="GoldCoin73" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(367, -456)
+
+[node name="GoldCoin74" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(404, -394)
+
+[node name="GoldCoin75" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(319, -364)
+
+[node name="GoldCoin76" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(225, -361)
+
+[node name="GoldCoin77" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(73, -332)
+
+[node name="GoldCoin78" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(178, -300)
+
+[node name="GoldCoin79" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(236, -270)
+
+[node name="GoldCoin80" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(304, -236)
+
+[node name="GoldCoin81" parent="Coins" instance=ExtResource("3_rcq5s")]
+position = Vector2(381, -202)
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(234, 209)
@@ -659,6 +888,7 @@ shape = SubResource("RectangleShape2D_uigfg")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 limit_left = 2
+limit_top = -2559
 limit_right = 447
 limit_bottom = 286
 drag_horizontal_enabled = true
@@ -703,37 +933,21 @@ script = ExtResource("26_nhunq")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="CoinGroup" type="Node" parent="HUD"]
+[node name="CoinsPanel" type="PanelContainer" parent="HUD"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("28_wkfmp")
 
-[node name="12" type="Sprite2D" parent="HUD/CoinGroup"]
-position = Vector2(90, 19)
-scale = Vector2(2, 1.5)
-texture = ExtResource("29_45woo")
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/CoinsPanel"]
+layout_mode = 2
+theme_override_constants/separation = -5
 
-[node name="11" type="Sprite2D" parent="HUD/CoinGroup"]
-position = Vector2(20, 19)
-scale = Vector2(3, 1.5)
-texture = ExtResource("30_1pp3w")
+[node name="CoinsLabel" type="Label" parent="HUD/CoinsPanel/HBoxContainer"]
+layout_mode = 2
+text = "coins: "
 
-[node name="Label" type="Label" parent="HUD/CoinGroup"]
-offset_left = 20.0
-offset_top = 9.0
-offset_right = 69.0
-offset_bottom = 30.0
-scale = Vector2(0.333, 0.333)
-theme_override_fonts/font = ExtResource("31_ngvr7")
-theme_override_font_sizes/font_size = 45
-text = "Coins:"
-
-[node name="CoinCount" type="Label" parent="HUD/CoinGroup"]
-offset_left = 67.0
-offset_top = 10.0
-offset_right = 107.0
-offset_bottom = 36.0
-scale = Vector2(0.333, 0.333)
-theme_override_fonts/font = ExtResource("31_ngvr7")
-theme_override_font_sizes/font_size = 45
-text = "0
-"
+[node name="CoinsCount" type="Label" parent="HUD/CoinsPanel/HBoxContainer"]
+layout_mode = 2
+text = "0"
 
 [connection signal="child_exiting_tree" from="Coins" to="Manager" method="_on_coins_child_exiting_tree"]
